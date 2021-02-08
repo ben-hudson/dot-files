@@ -1,3 +1,8 @@
 [user]
 	email = ben@hudsonsathome.com
 	name = Ben Hudson
+[filter "nbstripout"]
+	clean = \"/home/ben/miniconda3/bin/python\" -m nbstripout
+	smudge = cat
+[diff "ipynb"]
+	textconv = \"/home/ben/miniconda3/bin/python\" -m nbstripout -t
