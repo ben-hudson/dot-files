@@ -1,8 +1,10 @@
 [user]
 	email = ben@hudsonsathome.com
 	name = Ben Hudson
-[filter "nbstripout"]
-	clean = \"/home/ben/miniconda3/bin/python\" -m nbstripout
-	smudge = cat
-[diff "ipynb"]
-	textconv = \"/home/ben/miniconda3/bin/python\" -m nbstripout -t
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = store
